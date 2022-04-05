@@ -1,0 +1,88 @@
+<h1 style="text-align: center; color: deepskyblue;">LOGIN FORM</h1>
+
+
+<div class="form-group">
+
+
+  <form [formGroup]="loginform">
+    <div class="form">
+      <div class="dx-fieldset">
+        <div class="dx-field">
+
+          <div class="dx-field">
+
+            <div class="dx-field-label">Email</div>
+
+            <div class="dx-field-value">
+
+              <dx-text-box value="" placeholder="Ente the email" formControlName="email" width="300"
+                [showClearButton]="true" (keyup)="email($event)"></dx-text-box>
+              <div *ngIf="loginform.controls['email'].invalid && isSubmitted==true">
+                <label style="color:red ">Email is Required</label>
+              </div>
+            </div>
+
+            <span *ngIf="isEmailinvalid && isEventriger"><label style="color: rgb(220, 20, 153);">Invalid Email
+                Address</label></span>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="dx-field">
+            <div class="dx-field-label">Password</div>
+
+
+            <div class="dx-field-value">
+              <dx-text-box width="300" [mode]=isMode formControlName="password" placeholder="Enter password"
+                [showClearButton]="false" (keyup)="pass($event)"></dx-text-box>
+                <div>
+                <button *ngIf="isShow" (click)="view()"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                <button *ngIf="!isShow" (click)="view()"><i class="fa fa-eye-slash" aria-hidden="true" ></i></button>
+              </div>
+              <div *ngIf="loginform.controls['password'].invalid && isSubmitted==true">
+                <label style="color:red ">Password is Required</label>
+
+              </div>
+
+
+            </div>
+            <span *ngIf="isPasswordLowercase && isEventriger==true "><label style="color: crimson;"> Lowercase
+                Must</label></span><br>
+            <span *ngIf="isPasswordUppercase && isEventriger==true "><label style="color: crimson;"> Uppercase
+                Must</label></span><br>
+            <span *ngIf="isPasswordSpecialcase && isEventriger==true  "><label style="color: crimson;"> Special
+                Must</label></span><br>
+            <span *ngIf="isPasswordNumbercase && isEventriger==true "><label style="color: crimson;"> Number
+                Must</label></span><br>
+            <span *ngIf="isPasswordLengthcase && isEventriger==true "><label style="color: crimson;"> Atleat 7 character
+                must </label></span>
+          </div>
+          <span *ngIf="isInvalidUser && isEventriger"><label style="color: rgb(220, 20, 153);">Invalid Email Or
+              Password</label></span>
+          <span *ngIf="isSuccesuser"><label style="color: rgb(45, 197, 25);">Success..!</label></span>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </form> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp;&nbsp;
+
+  <button class="favorite styled" (click)="save()" type="button">
+    Login
+  </button>
